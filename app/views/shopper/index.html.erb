@@ -1,9 +1,22 @@
 <% if notice %>
   <p id="notice"><%= notice %></p>
 <% end %>
-<div class="shopper">
+<br class="shopper">
   <h1>Products Catalog</h1>
   click picture to see the details of the individual item
+  <%= form_tag(shopper_path,method: "get") do %>
+    <%= label_tag(:n, "name:") %>
+    <%= text_field_tag(:n) %>
+    <%= label_tag(:d, "description:") %>
+    <%= text_field_tag(:d) %>
+    <br>
+    <%= label_tag(:min, "Minimum price") %>
+    <%= number_field_tag(:min) %>
+    <%= label_tag(:max, "Maximum price") %>
+    <%= number_field_tag(:max) %>
+    <br>
+    <%= submit_tag("search") %>
+  <% end %>
   <% @products.each do |product| %>
     <div class="entry" >
 
